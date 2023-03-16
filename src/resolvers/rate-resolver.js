@@ -44,7 +44,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.RateResolver = void 0;
 var type_graphql_1 = require("type-graphql");
 var typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
@@ -67,7 +67,7 @@ var RateResolver = /** @class */ (function () {
     __decorate([
         (0, type_graphql_1.FieldResolver)(),
         __param(0, (0, type_graphql_1.Root)())
-    ], RateResolver.prototype, "user", null);
+    ], RateResolver.prototype, "user");
     RateResolver = __decorate([
         (0, type_graphql_1.Resolver)(function (of) { return rate_1.Rate; }),
         __param(0, (0, typeorm_typedi_extensions_1.InjectRepository)(user_1.User))

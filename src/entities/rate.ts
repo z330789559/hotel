@@ -9,6 +9,7 @@ import {
     PrimaryGeneratedColumn,
     CreateDateColumn,
     RelationId,
+    BaseEntity,
   } from "typeorm";
   
   import { User } from "./user";
@@ -16,7 +17,7 @@ import {
   
   @Entity()
   @ObjectType()
-  export class Rate {
+  export class Rate  extends BaseEntity {
     @PrimaryGeneratedColumn()
     readonly id: number;
   

@@ -1,27 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -58,11 +35,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 require("reflect-metadata");
 var apollo_server_1 = require("apollo-server");
 var typedi_1 = require("typedi");
-var TypeORM = __importStar(require("typeorm"));
+var TypeORM = require("typeorm");
 var type_graphql_1 = require("type-graphql");
 var recipe_resolver_1 = require("./resolvers/recipe-resolver");
 var rate_resolver_1 = require("./resolvers/rate-resolver");
@@ -81,7 +58,7 @@ function bootstrap() {
                     _a.trys.push([0, 5, , 6]);
                     // create TypeORM connection
                     return [4 /*yield*/, TypeORM.createConnection({
-                            type: "postgres",
+                            type: "mysql",
                             database: "type-graphql-basic",
                             username: "postgres",
                             password: "qwerty",
@@ -92,7 +69,7 @@ function bootstrap() {
                             logger: "advanced-console",
                             logging: "all",
                             dropSchema: true,
-                            cache: true,
+                            cache: true
                         })];
                 case 1:
                     // create TypeORM connection
@@ -102,7 +79,7 @@ function bootstrap() {
                     defaultUser = (_a.sent()).defaultUser;
                     return [4 /*yield*/, (0, type_graphql_1.buildSchema)({
                             resolvers: [recipe_resolver_1.RecipeResolver, rate_resolver_1.RateResolver],
-                            container: typedi_1.Container,
+                            container: typedi_1.Container
                         })];
                 case 3:
                     schema = _a.sent();

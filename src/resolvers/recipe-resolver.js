@@ -55,7 +55,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.RecipeResolver = void 0;
 var type_graphql_1 = require("type-graphql");
 var typeorm_typedi_extensions_1 = require("typeorm-typedi-extensions");
@@ -96,7 +96,7 @@ var RecipeResolver = /** @class */ (function () {
                 switch (_b.label) {
                     case 0: return [4 /*yield*/, this.recipeRepository.findOne({
                             where: { id: rateInput.recipeId.toString() },
-                            relations: ["ratings"],
+                            relations: ["ratings"]
                         })];
                     case 1:
                         recipe = _b.sent();
@@ -106,7 +106,7 @@ var RecipeResolver = /** @class */ (function () {
                         newRate = this.ratingsRepository.create({
                             recipe: recipe,
                             value: rateInput.value,
-                            user: user,
+                            user: user
                         });
                         recipe.ratings.push(newRate);
                         // update the recipe
@@ -122,7 +122,7 @@ var RecipeResolver = /** @class */ (function () {
     RecipeResolver.prototype.ratings = function (recipe) {
         return this.ratingsRepository.find({
             cache: 1000,
-            where: { recipe: { id: recipe.id } },
+            where: { recipe: { id: recipe.id } }
         });
     };
     RecipeResolver.prototype.author = function (recipe) {
@@ -138,28 +138,28 @@ var RecipeResolver = /** @class */ (function () {
     __decorate([
         (0, type_graphql_1.Query)(function (returns) { return recipe_1.Recipe; }, { nullable: true }),
         __param(0, (0, type_graphql_1.Arg)("recipeId", function (type) { return type_graphql_1.Int; }))
-    ], RecipeResolver.prototype, "recipe", null);
+    ], RecipeResolver.prototype, "recipe");
     __decorate([
         (0, type_graphql_1.Query)(function (returns) { return [recipe_1.Recipe]; })
-    ], RecipeResolver.prototype, "recipes", null);
+    ], RecipeResolver.prototype, "recipes");
     __decorate([
         (0, type_graphql_1.Mutation)(function (returns) { return recipe_1.Recipe; }),
         __param(0, (0, type_graphql_1.Arg)("recipe")),
         __param(1, (0, type_graphql_1.Ctx)())
-    ], RecipeResolver.prototype, "addRecipe", null);
+    ], RecipeResolver.prototype, "addRecipe");
     __decorate([
         (0, type_graphql_1.Mutation)(function (returns) { return recipe_1.Recipe; }),
         __param(0, (0, type_graphql_1.Arg)("rate")),
         __param(1, (0, type_graphql_1.Ctx)())
-    ], RecipeResolver.prototype, "rate", null);
+    ], RecipeResolver.prototype, "rate");
     __decorate([
         (0, type_graphql_1.FieldResolver)(),
         __param(0, (0, type_graphql_1.Root)())
-    ], RecipeResolver.prototype, "ratings", null);
+    ], RecipeResolver.prototype, "ratings");
     __decorate([
         (0, type_graphql_1.FieldResolver)(),
         __param(0, (0, type_graphql_1.Root)())
-    ], RecipeResolver.prototype, "author", null);
+    ], RecipeResolver.prototype, "author");
     RecipeResolver = __decorate([
         (0, type_graphql_1.Resolver)(function (of) { return recipe_1.Recipe; }),
         __param(0, (0, typeorm_typedi_extensions_1.InjectRepository)(recipe_1.Recipe)),

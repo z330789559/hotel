@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.seedDatabase = void 0;
 var typeorm_1 = require("typeorm");
 var recipe_1 = require("./entities/recipe");
@@ -53,7 +53,7 @@ function seedDatabase() {
                     defaultUser = userRepository.create({
                         email: "test@github.com",
                         nickname: "MichalLytek",
-                        password: "s3cr3tp4ssw0rd",
+                        password: "s3cr3tp4ssw0rd"
                     });
                     return [4 /*yield*/, userRepository.save(defaultUser)];
                 case 1:
@@ -69,7 +69,7 @@ function seedDatabase() {
                                 { value: 5, user: defaultUser },
                                 { value: 3, user: defaultUser },
                                 { value: 4, user: defaultUser },
-                            ]),
+                            ])
                         },
                         {
                             title: "Recipe 2",
@@ -77,14 +77,14 @@ function seedDatabase() {
                             ratings: ratingsRepository.create([
                                 { value: 2, user: defaultUser },
                                 { value: 4, user: defaultUser },
-                            ]),
+                            ])
                         },
                     ]);
                     return [4 /*yield*/, recipeRepository.save(recipes)];
                 case 2:
                     _a.sent();
                     return [2 /*return*/, {
-                            defaultUser: defaultUser,
+                            defaultUser: defaultUser
                         }];
             }
         });

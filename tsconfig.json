@@ -14,7 +14,7 @@
     "declaration": false,                      /* Generates corresponding '.d.ts' file. */
   
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
-    "outDir": "./build",                      /* Redirect output structure to the directory. */
+    "outDir": "./dist",                      /* Redirect output structure to the directory. */
     // "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     "removeComments": false,                  /* Do not emit comments to output. */
     // "noEmit": true,                        /* Do not emit outputs. */
@@ -62,8 +62,8 @@
   },
   "include": [
     "./src",
-    "./tests"
+    "./tests",
   ],
-  "exclude": ["node_modules"] 
+   "exclude": ["node_modules"] 
 }
 

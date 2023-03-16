@@ -1,7 +1,7 @@
 import { Resolver, Query, FieldResolver, Arg, Root, Mutation, Ctx, Int } from "type-graphql";
 import { Repository } from "typeorm";
 import { InjectRepository } from "typeorm-typedi-extensions";
-
+import { Service } from "typedi";
 import { Recipe } from "../entities/recipe";
 import { Rate } from "../entities/rate";
 import { User } from "../entities/user";
@@ -9,6 +9,7 @@ import { RecipeInput } from "./types/recipe-input";
 import { Context } from "../index";
 import { RateInput } from "./types/rate-input";
 
+@Service()
 @Resolver(of => Recipe)
 export class RecipeResolver {
   constructor(
@@ -19,7 +20,7 @@ export class RecipeResolver {
 
   @Query(returns => Recipe, { nullable: true })
   recipe(@Arg("recipeId", type => Int) recipeId: number) {
-    return this.recipeRepository.findOneBy({ id: recipeId.toString() });
+    return this.recipeRepository.findOneBy({ id: recipeId });
   }
 
   @Query(returns => [Recipe])
@@ -43,7 +44,7 @@ export class RecipeResolver {
   async rate(@Arg("rate") rateInput: RateInput, @Ctx() { user }: Context): Promise<Recipe> {
     // find the recipe
     const recipe = await this.recipeRepository.findOne({
-      where: { id: rateInput.recipeId.toString() },
+      where: { id: rateInput.recipeId },
       relations: ["ratings"],
     });
     if (!recipe) {
