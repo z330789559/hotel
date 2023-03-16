@@ -1,25 +1,19 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecipeInput = void 0;
-var type_graphql_1 = require("type-graphql");
-var RecipeInput = /** @class */ (function () {
-    function RecipeInput() {
-    }
-    __decorate([
-        (0, type_graphql_1.Field)()
-    ], RecipeInput.prototype, "title");
-    __decorate([
-        (0, type_graphql_1.Field)({ nullable: true })
-    ], RecipeInput.prototype, "description");
-    RecipeInput = __decorate([
-        (0, type_graphql_1.InputType)()
-    ], RecipeInput);
-    return RecipeInput;
-}());
+const tslib_1 = require("tslib");
+const type_graphql_1 = require("type-graphql");
+let RecipeInput = class RecipeInput {
+};
+tslib_1.__decorate([
+    (0, type_graphql_1.Field)(),
+    tslib_1.__metadata("design:type", String)
+], RecipeInput.prototype, "title", void 0);
+tslib_1.__decorate([
+    (0, type_graphql_1.Field)({ nullable: true }),
+    tslib_1.__metadata("design:type", String)
+], RecipeInput.prototype, "description", void 0);
+RecipeInput = tslib_1.__decorate([
+    (0, type_graphql_1.InputType)()
+], RecipeInput);
 exports.RecipeInput = RecipeInput;

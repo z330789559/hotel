@@ -1,47 +1,47 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Rate = void 0;
-var type_graphql_1 = require("type-graphql");
-var typeorm_1 = require("typeorm");
-var user_1 = require("./user");
-var recipe_1 = require("./recipe");
-var Rate = /** @class */ (function () {
-    function Rate() {
-    }
-    __decorate([
-        (0, typeorm_1.PrimaryGeneratedColumn)()
-    ], Rate.prototype, "id");
-    __decorate([
-        (0, type_graphql_1.Field)(function (type) { return type_graphql_1.Int; }),
-        (0, typeorm_1.Column)({ type: "int" })
-    ], Rate.prototype, "value");
-    __decorate([
-        (0, type_graphql_1.Field)(function (type) { return user_1.User; }),
-        (0, typeorm_1.ManyToOne)(function (type) { return user_1.User; })
-    ], Rate.prototype, "user");
-    __decorate([
-        (0, typeorm_1.RelationId)(function (rate) { return rate.user; })
-    ], Rate.prototype, "userId");
-    __decorate([
-        (0, type_graphql_1.Field)(),
-        (0, typeorm_1.CreateDateColumn)()
-    ], Rate.prototype, "date");
-    __decorate([
-        (0, typeorm_1.ManyToOne)(function (type) { return recipe_1.Recipe; })
-    ], Rate.prototype, "recipe");
-    __decorate([
-        (0, typeorm_1.RelationId)(function (rate) { return rate.recipe; })
-    ], Rate.prototype, "recipeId");
-    Rate = __decorate([
-        (0, typeorm_1.Entity)(),
-        (0, type_graphql_1.ObjectType)()
-    ], Rate);
-    return Rate;
-}());
+const tslib_1 = require("tslib");
+require("reflect-metadata");
+const type_graphql_1 = require("type-graphql");
+const typeorm_1 = require("typeorm");
+const user_1 = require("./user");
+const recipe_1 = require("./recipe");
+let Rate = class Rate extends typeorm_1.BaseEntity {
+};
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    tslib_1.__metadata("design:type", Number)
+], Rate.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, type_graphql_1.Field)(type => type_graphql_1.Int),
+    (0, typeorm_1.Column)({ type: "int" }),
+    tslib_1.__metadata("design:type", Number)
+], Rate.prototype, "value", void 0);
+tslib_1.__decorate([
+    (0, type_graphql_1.Field)(type => user_1.User),
+    (0, typeorm_1.ManyToOne)(type => user_1.User),
+    tslib_1.__metadata("design:type", user_1.User)
+], Rate.prototype, "user", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.RelationId)((rate) => rate.user),
+    tslib_1.__metadata("design:type", Number)
+], Rate.prototype, "userId", void 0);
+tslib_1.__decorate([
+    (0, type_graphql_1.Field)(),
+    (0, typeorm_1.CreateDateColumn)(),
+    tslib_1.__metadata("design:type", Date)
+], Rate.prototype, "date", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(type => recipe_1.Recipe),
+    tslib_1.__metadata("design:type", recipe_1.Recipe)
+], Rate.prototype, "recipe", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.RelationId)((rate) => rate.recipe),
+    tslib_1.__metadata("design:type", Number)
+], Rate.prototype, "recipeId", void 0);
+Rate = tslib_1.__decorate([
+    (0, typeorm_1.Entity)(),
+    (0, type_graphql_1.ObjectType)()
+], Rate);
 exports.Rate = Rate;

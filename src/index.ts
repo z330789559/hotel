@@ -23,11 +23,11 @@ async function bootstrap() {
   
     // create TypeORM connection
     await TypeORM.createConnection({
-      type: "mysql",
+      type: "postgres",
       database: "type-graphql-basic",
       username: "postgres", // fill this with your username
       password: "qwerty", // and password
-      port: 3306, // and port
+      port: 5432, // and port
       host: "113.31.116.160", // and host
       entities: [Recipe, Rate, User],
       synchronize: true,

@@ -1,5 +1,6 @@
 
 
+import "reflect-metadata";
 import { ObjectType, Field, Int } from 'type-graphql'
 
 import {

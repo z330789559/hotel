@@ -1,8 +1,10 @@
 
 
 
+import "reflect-metadata";
 import { Field, ID, ObjectType } from 'type-graphql'
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, RelationId ,BaseEntity} from "typeorm";
+
 import { Rate } from "./rate";
 import { User } from "./user";
 

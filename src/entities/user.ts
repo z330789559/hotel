@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { Field, ID, ObjectType } from "type-graphql";
 import { PrimaryGeneratedColumn, Column, Entity ,BaseEntity} from "typeorm";
 
