@@ -27,8 +27,8 @@ async function bootstrap() {
       database: "type-graphql-basic",
       username: "postgres", // fill this with your username
       password: "qwerty", // and password
-      port: 3307, // and port
-      host: "127.0.0.1", // and host
+      port: 3306, // and port
+      host: "113.31.116.160", // and host
       entities: [Recipe, Rate, User],
       synchronize: true,
       logger: "advanced-console",
